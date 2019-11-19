@@ -9,7 +9,7 @@ accumulate lines of code to master diffrent languages and some of their librarie
 
 ## Why ? 
 
-this repo is a group-project that we made during our formation at [__Becode__](https://www.becode.org/register/index.html)
+this repo is a group-project that we made during our formation at [__Becode__](https://www.becode.org/register/index.html) around november 2019
 
 ## What we think about the project: 
 
@@ -32,10 +32,6 @@ Votre recentis sur le projet ici
 [__Vincent Vissers :__](https://github.com/Vincent-120)    
 
 
-
-## when ?
-
-November 2019
 
 ## What it looks like ?
 
