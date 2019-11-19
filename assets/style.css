@@ -1,0 +1,61 @@
+body{
+    display: flex;
+    flex-flow: wrap;
+    justify-content: space-between;
+}
+.left{
+    border:1px solid red;
+    height: auto;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    width: 20%;
+}
+.stat{
+    display: flex;
+    flex-flow: column;
+    text-align: left;
+}
+.bonus{
+    display: flex;
+    flex-flow: column;
+}
+h2{
+    text-align:center;
+    padding-right: auto;
+    padding-left: auto;
+}
+.center{
+    display: flex;
+    justify-content: center;
+    border:solid 1px rgb(40, 236, 40);
+    height: auto;
+    width: 50%;
+}
+
+.ligne-de-code{
+    justify-content: center;
+    display:flex;
+    flex-flow: nowrap;
+    width: 200px;
+}
+
+.code{
+    padding-right: 05%;
+}
+.right{
+    border:solid 1px blue;
+    height: auto;
+    width: 20%;
+}
+.auto-click{
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    text-align: center;
+}
+h1{ 
+    text-align: center;
+    width: 100%;
+    border:solid 1px lightblue;
+}
