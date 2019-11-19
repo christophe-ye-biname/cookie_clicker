@@ -36,16 +36,20 @@ const saveData = localStorage.save ? JSON.parse(localStorage.save) : {
     "upgrades": {}
 };
 
-// AUTO SAVE
-const updateLocalStorage = () => localStorage.setItem("save", JSON.stringify(saveData));
-setInterval(updateLocalStorage, 2 * 60 * 1000 /* min × sec × ms */);
+// -------- AUTO SAVE --------
+
+const updateLocalStorage = (name, value) => localStorage.setItem(name, value);
+setInterval(updateLocalStorage, 2 * 60 * 1000 /* min × sec × ms */, "save", JSON.stringify(saveData));
+
+// ------- GAME DATA ---------
 
 const gameData = Object.freeze({
     "languages": {
         "markdown": {
             "name": "Markdown",
             "description": "default",
-            "basicPrice": 0,
+            "basicPrice": 15,
+            "lps": 0.1,
             "multipliers": [
                 {
                     "name": "README.md",
@@ -64,7 +68,8 @@ const gameData = Object.freeze({
         "html": {
             "name": "HTML",
             "description": "default",
-            "basicPrice": 0,
+            "basicPrice": 100,
+            "lps": 1,
             "multipliers": [
                 {
                     "name": "HTML 5",
@@ -83,7 +88,8 @@ const gameData = Object.freeze({
         "css": {
             "name": "CSS",
             "description": "default",
-            "basicPrice": 0,
+            "basicPrice": 1000,
+            "lps": 8,
             "multipliers": [
                 {
                     "name": "Flexbox Froggy",
@@ -114,7 +120,8 @@ const gameData = Object.freeze({
         "javascript": {
             "name": "JavaScript",
             "description": "default",
-            "basicPrice": 0,
+            "basicPrice": 12000,
+            "lps": 50,
             "multipliers": [
                 {
                     "name": "node.js",
@@ -145,7 +152,8 @@ const gameData = Object.freeze({
         "csharp": {
             "name": "C#",
             "description": "default",
-            "basicPrice": 0,
+            "basicPrice": 130000,
+            "lps": 250,
             "multipliers": [
                 {
                     "name": "Visual Studio",
@@ -164,7 +172,8 @@ const gameData = Object.freeze({
         "rust": {
             "name": "Rust",
             "description": "default",
-            "basicPrice": 0,
+            "basicPrice": 1400000,
+            "lps": 1500,
             "multipliers": [
                 {
                     "name": "Ownership",
@@ -174,7 +183,7 @@ const gameData = Object.freeze({
                 },
                 {
                     "name": "Borrowing",
-                    "description": "default",
+                    "description": "Rien à voir avec Morrowind",
                     "price": 0,
                     "value": 0
                 },
@@ -189,7 +198,8 @@ const gameData = Object.freeze({
         "emoji": {
             "name": "Emojicode",
             "description": "default",
-            "basicPrice": 0,
+            "basicPrice": 20000000,
+            "lps": 8000,
             "multipliers": [
                 {
                     "name": "Perfection",
@@ -200,5 +210,5 @@ const gameData = Object.freeze({
             ]
         }
     },
-    "upgrades": {},
+    "upgrades": {}
 });
