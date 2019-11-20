@@ -231,11 +231,13 @@ void (function() {
 
   const counter = document.getElementById("counter");
   // Fetch the counter value in the save data
-  counter.textContent = saveData.score;
+  counter.textContent = `${saveData.score} lignes de code`;
 
   // Increment the counter on click
-
-  let logo = document.getElementById("logo");
+  document.getElementById("logo").addEventListener("click", () => {
+    saveData.score++;
+    counter.textContent = `${saveData.score} lignes de code`;
+  });
 
   logo.addEventListener("click", () => {
     logo.setAttribute("transform", "scale(0.9)");
@@ -254,34 +256,42 @@ void (function() {
   console.log(calculatePrice("rust"));
 
   // Here's the div where we'll display the 'auto-clickers'
-  const autoClickArea = document.getElementById("auto-click");
+  const autoClickArea = document.getElementById("auto-clickers");
 
   // Dynamically create a list of 'auto-clickers' based on the game data
+  // NB: AC stands for 'auto-clicker'
   for (const language in gameData.languages) {
-    // Create the button to buy new auto-clickers
-    const button = document.createElement("div");
-    button.className = "language";
+    // Create the container for the auto-clicker
+    const newAC = document.createElement("div");
+    newAC.className = "language";
+
+    // Fetch the logo of the language
     const img = document.createElement("img");
     img.setAttribute("src", `assets/img/${language}.png`);
-    button.appendChild(img);
+    newAC.appendChild(img);
+
+    // Fetch name and price of the language
     const div = document.createElement("div");
-    const ACName = document.createElement("p"); // AC stands for 'auto-clicker'
+    const ACName = document.createElement("p");
     ACName.textContent = gameData.languages[language].name;
     const ACPrice = document.createElement("p");
     ACPrice.textContent = calculatePrice(language);
     div.appendChild(ACName);
     div.appendChild(ACPrice);
-    button.appendChild(div);
+    newAC.appendChild(div);
+
+    // Fetch the quantity of current owned 'language'
     const ACQuantity = document.createElement("p");
     ACQuantity.className = "quantity";
     ACQuantity.textContent = saveData.languages[language].quantity;
-    button.appendChild(ACQuantity);
-    button.addEventListener("click", () => {
-      console.log(button);
+    newAC.appendChild(ACQuantity);
+
+    newAC.addEventListener("click", () => {
+      console.log(newAC);
     });
 
     // Add our new auto-clicker to the div :=)
-    autoClickArea.appendChild(button);
+    autoClickArea.appendChild(newAC);
   }
 
   // -------------------------------- BONUS -------------------------------- \\
