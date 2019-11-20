@@ -29,6 +29,11 @@ body {
         align-items: center;
         background-image: url(img/background.png);
         width: 100%;
+
+        #logo {
+            border-radius: 50%;
+            cursor: crosshair;
+        }
     }
 }
 
