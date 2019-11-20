@@ -1,58 +1,71 @@
 * {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-    background-image: linear-gradient(to left bottom, #1f2022, #24282e, #27303a, #283a45, #284351, #2c4f5f, #305c6c, #33697a, #3e7d8e, #4a91a2, #56a6b6, #63bcca);
-    background-repeat: no-repeat;
-    background-size: cover;
-    display: flex;
-    height: 100vh;
+  background-image: linear-gradient(
+    to left bottom,
+    #1f2022,
+    #24282e,
+    #27303a,
+    #283a45,
+    #284351,
+    #2c4f5f,
+    #305c6c,
+    #33697a,
+    #3e7d8e,
+    #4a91a2,
+    #56a6b6,
+    #63bcca
+  );
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  height: 100vh;
 }
 
 #left-container {
-    width: 25vw;
-    height: 100%;
+  width: 25vw;
+  height: 100%;
 }
 
 #center-container {
-    width: 50vw;
-    height: 100%;
+  width: 50vw;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  #game-container {
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100%;
 
-    #game-container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        background-image: url(img/background.png);
-        width: 100%;
-
-        #logo {
-            border-radius: 50%;
-            cursor: crosshair;
-        }
+    #logo {
+      border-radius: 50%;
+      cursor: crosshair;
     }
+  }
 }
 
-#right-container { 
-    width: 25vw;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+#right-container {
+  width: 25vw;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
-    #auto-clickers {
-        width: 75%;
-        .language {
-            display: flex;
-            border: 1px solid black;
-            cursor: pointer;
-        }
-        img {
-            width: 50px;
-        }
+  #auto-clickers {
+    width: 75%;
+    .language {
+      display: flex;
+      border: 1px solid black;
+      cursor: pointer;
     }
+    img {
+      width: 50px;
+    }
+  }
 }

@@ -234,15 +234,20 @@ void (function() {
   counter.textContent = `${saveData.score} lignes de code`;
 
   // Increment the counter on click
-  document.getElementById("logo").addEventListener("click", () => {
-    saveData.score++;
-    counter.textContent = `${saveData.score} lignes de code`;
+
+  let logo = document.getElementById("logo");
+
+  logo.addEventListener("mousedown", () => {
+    logo.style = "transform:scale(0.9)";
+  });
+
+  logo.addEventListener("mouseup", () => {
+    logo.style = "transform:scale(1)";
   });
 
   logo.addEventListener("click", () => {
-    logo.setAttribute("transform", "scale(0.9)");
     saveData.score++;
-    counter.textContent = saveData.score;
+    counter.textContent = `${saveData.score} lignes de code`;
   });
 
   // ------------------------------- MULTIPLIERS ------------------------------ \\

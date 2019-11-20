@@ -4,38 +4,8 @@
 }
 
 body {
-  background-image: -webkit-gradient(
-    linear,
-    right top,
-    left bottom,
-    from(#1f2022),
-    color-stop(#24282e),
-    color-stop(#27303a),
-    color-stop(#283a45),
-    color-stop(#284351),
-    color-stop(#2c4f5f),
-    color-stop(#305c6c),
-    color-stop(#33697a),
-    color-stop(#3e7d8e),
-    color-stop(#4a91a2),
-    color-stop(#56a6b6),
-    to(#63bcca)
-  );
-  background-image: linear-gradient(
-    to left bottom,
-    #1f2022,
-    #24282e,
-    #27303a,
-    #283a45,
-    #284351,
-    #2c4f5f,
-    #305c6c,
-    #33697a,
-    #3e7d8e,
-    #4a91a2,
-    #56a6b6,
-    #63bcca
-  );
+  background-image: -webkit-gradient(linear, right top, left bottom, from(#1f2022), color-stop(#24282e), color-stop(#27303a), color-stop(#283a45), color-stop(#284351), color-stop(#2c4f5f), color-stop(#305c6c), color-stop(#33697a), color-stop(#3e7d8e), color-stop(#4a91a2), color-stop(#56a6b6), to(#63bcca));
+  background-image: linear-gradient(to left bottom, #1f2022, #24282e, #27303a, #283a45, #284351, #2c4f5f, #305c6c, #33697a, #3e7d8e, #4a91a2, #56a6b6, #63bcca);
   background-repeat: no-repeat;
   background-size: cover;
   display: -webkit-box;
@@ -57,11 +27,11 @@ body {
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 #center-container #game-container {
@@ -70,11 +40,11 @@ body {
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
   width: 100%;
 }
 
@@ -91,11 +61,11 @@ body {
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 #right-container #auto-clickers {
