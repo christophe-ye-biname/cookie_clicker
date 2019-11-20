@@ -1,44 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <link rel="stylesheet" type="text/css" href="assets/style.css">
-</head>
-<body>
-    <h1>&lt;/BeClicker&gt;</h1>
-<div class="global">
-    <div class="left">
-        <div class="stat">
-            <h2>Statistique</h2>
-            <p>temps:</p>
-            <p>click:</p>
-            <p>product:</p>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+        <link rel="stylesheet" type="text/css" href="assets/style.css">
+    </head>
+    <body>
+        <div id="left-container">
+            <h2>Statistiques</h2>
         </div>
-        <div class="bonus">
-                <h2>store</h2>
-                <div id="update"></div>
-            </div>
-    </div>
-    <div class="center">
-        <div>
-            <div class="ligne-de-code">
-                <p id="counter">0</p>
-                <p>Ligne de code</p>
-            </div>
-            <img id="logo" src="assets/img/logo_Becode.png" alt="Logo,Becode">
-        </div>
-    </div>
-    <form action="">
-        <div class="right">
-            <div id="auto-click">
-                <h2>Auto-click</h2>
+        <div id="center-container">
+            <h1>BeClicker</h1>
+            <div id="game-container">
+                <p id="counter">0 ligne de code</p>
+                <img id="logo" src="assets/img/logo_Becode.png" alt="Logo de BeCode">
             </div>
         </div>
-    </form>
-</div>
-    <script src="assets/script.js"></script>
-</body>
+        <div id="right-container">
+            <h2>Langages</h2>
+            <div id="auto-clickers"></div>
+        </div>
+        <script src="assets/script.js"></script>
+    </body>
 </html>
