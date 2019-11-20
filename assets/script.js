@@ -229,14 +229,13 @@ void function () {
     // --------------------------------- COUNTER --------------------------------- \\
 
     const counter = document.getElementById("counter");
-    // Fetch the counter value in the save data
-    counter.textContent = saveData.score;
+    displayScore();
     
     const logo = document.getElementById("logo");
     // Increment the counter on click
     logo.addEventListener("click", () => {
         saveData.score++;
-        counter.textContent = saveData.score;
+        displayScore();
         lock();
     });
 
@@ -303,7 +302,7 @@ void function () {
                 const price = calculatePrice(key);
                 saveData.languages[key].quantity++;
                 saveData.score -= price;
-                counter.textContent = saveData.score;
+                displayScore();
                 autoclicker.querySelector(".quantity").textContent = saveData.languages[key].quantity;
                 autoclicker.querySelector(".price").textContent = calculatePrice(key);
                 lock();
@@ -317,8 +316,26 @@ void function () {
     let lps = 0;
 
     function updateLps() {
-
+        let newLps = 0;
+        for (const language in saveData.languages) {
+            newLps += gameData.languages[language].lps * saveData.languages[language].quantity;
+        }
+        lps = newLps;
     }
+    updateLps();
+
+    function updateData() {
+        updateLps();
+        saveData.score += lps;
+        displayScore();
+    }
+
+    function displayScore() {
+        counter.textContent = saveData.score|0;
+        lock();
+    }
+
+    setInterval(updateData, 1000);
 
     // -------------------------------- BONUS -------------------------------- \\
 
@@ -326,9 +343,9 @@ void function () {
 
     function lock() {
         [...document.querySelectorAll(".language")].forEach(element => {
+            // Check that 
             if (calculatePrice(element.id) > saveData.score) {
                 element.className = "language locked";
-                console.log(element.className)
             } else element.className = "language";
         });
     }
