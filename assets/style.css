@@ -52,6 +52,15 @@ body {
 }
 
 #center-container #game-container #counter:after {
+  content: " lignes de code";
+}
+
+#center-container #game-container #lps {
+  color: #e9e3e3;
+  font-size: 1.5em;
+}
+
+#center-container #game-container #lps:after {
   content: " lps";
 }
 
@@ -116,12 +125,11 @@ body {
 }
 
 #right-container #auto-clickers .locked {
-  background-color: black;
   opacity: 0.7;
   cursor: not-allowed;
 }
 
 #right-container #auto-clickers .locked:hover {
-  background-color: black;
+  background-color: #1f1c1c;
 }
 /*# sourceMappingURL=style.css.map */

@@ -1,4 +1,8 @@
 "use strict";
+// localStorage.clear(); // dé-commenter pour reset
+
+// Display incredible message in the console
+console.log("%c STOP TRICHER HELP (╯°□°）╯︵ ┻━┻", `color: red; background-color:black; font-size: 30px; font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;`);
 
 // Encapsulating the game data using an IIFE
 void function () {
@@ -10,19 +14,19 @@ void function () {
         "languages": {
             "markdown": {
                 "name": "Markdown",
-                "description": "default",
+                "description": "C’est comme le poker : 15 minutes pour le comprendre, toute une vie pour le maîtriser",
                 "basicPrice": 15,
                 "lps": 0.1,
                 "multipliers": [
                     {
                         "name": "README.md",
-                        "description": "default",
+                        "description": "Même si tu ne comprends pas trop ce que fais ton code, faut l'expliquer aux autres",
                         "price": 0,
                         "value": 0
                     },
                     {
                         "name": "GIFs animés",
-                        "description": "default",
+                        "description": "les readme c'est comme les livres: ca parrait moins long quand il y a des image",
                         "price": 0,
                         "value": 0
                     }
@@ -30,19 +34,19 @@ void function () {
             },
             "html": {
                 "name": "HTML",
-                "description": "default",
+                "description": "De quoi baliser le terrain",
                 "basicPrice": 100,
                 "lps": 1,
                 "multipliers": [
                     {
                         "name": "HTML 5",
-                        "description": "default",
+                        "description": "pas de br !",
                         "price": 0,
                         "value": 0
                     },
                     {
                         "name": "Validateur W3C",
-                        "description": "default",
+                        "description": "Les roses sont rouge, le ciel est bleu, ton site n'a qu'un score de 22",
                         "price": 0,
                         "value": 0
                     }
@@ -50,31 +54,31 @@ void function () {
             },
             "css": {
                 "name": "CSS",
-                "description": "default",
+                "description": "Le CSS c'est comme les bugs, c'est quand il y en a pas que c’est louche",
                 "basicPrice": 1024,
                 "lps": 8,
                 "multipliers": [
                     {
                         "name": "Flexbox Froggy",
-                        "description": "default",
+                        "description": "dés que tu le maitrise, le front c'est dans la boite",
                         "price": 0,
                         "value": 0
                     },
                     {
                         "name": "Bootstrap",
-                        "description": "default",
+                        "description": "pour faire des sites originaux ... quoi que ...",
                         "price": 0,
                         "value": 0
                     },
                     {
                         "name": "SASS",
-                        "description": "Syntactically Awesome Style Sheets",
+                        "description": "c'est du css mais sass-imbrique, c'est géniale !",
                         "price": 0,
                         "value": 0
                     },
                     {
                         "name": "Automate 110",
-                        "description": "default",
+                        "description": "contrairement à la soupe, ca ne se mange pas",
                         "price": 0,
                         "value": 0
                     }
@@ -82,31 +86,31 @@ void function () {
             },
             "javascript": {
                 "name": "JavaScript",
-                "description": "default",
+                "description": `"11" + 1 = "111" mais "11" - 1 = 10`,
                 "basicPrice": 12000,
                 "lps": 50,
                 "multipliers": [
                     {
                         "name": "node.js",
-                        "description": "default",
+                        "description": "ne t'inquiette pas, il faut juste télécharger deux-trois fichiers ...",
                         "price": 0,
                         "value": 0
                     },
                     {
                         "name": "jQuery",
-                        "description": "default",
+                        "description": "comme disent les greyjoy: ce qui est mort ne saurait mourir",
                         "price": 0,
                         "value": -3
                     },
                     {
                         "name": "React",
-                        "description": "default",
+                        "description": "pour faire des interfaces React-ives",
                         "price": 0,
                         "value": 0
                     },
                     {
                         "name": "JSFuck",
-                        "description": "default",
+                        "description": "(![]+[])[!+[]+!+[]] (({})+({}))[+!+[]] (![]+[])[!+[]+!+[]]",
                         "price": 0,
                         "value": 0
                     }
@@ -114,25 +118,25 @@ void function () {
             },
             "csharp": {
                 "name": "C#",
-                "description": "default",
+                "description": "The C#-est tool in the shed",
                 "basicPrice": 130000,
                 "lps": 250,
                 "multipliers": [
                     {
                         "name": "Visual Studio",
-                        "description": "default",
+                        "description": "cet ide atom-ise la concurrence",
                         "price": 0,
                         "value": 0
                     },
                     {
                         "name": "ASP.NET",
-                        "description": "default",
+                        "description": "la preuve que microsoft sait faire des choses bien",
                         "price": 0,
                         "value": 0
                     },
                     {
                         "name": "LINQ",
-                        "description": "default",
+                        "description": "aucun rapport avec Linked-in ou tout autre zelda",
                         "price": 0,
                         "value": 0
                     }
@@ -140,7 +144,7 @@ void function () {
             },
             "rust": {
                 "name": "Rust",
-                "description": "default",
+                "description": "J'espère que vous êtes vacciné contre le tétanos",
                 "basicPrice": 1400000,
                 "lps": 1500,
                 "multipliers": [
@@ -158,7 +162,7 @@ void function () {
                     },
                     {
                         "name": "Lifetime",
-                        "description": "default",
+                        "description": "À peu près le temps qu’il faut pour commencer à comprendre ce que tu fais avec",
                         "price": 0,
                         "value": 0
                     }
@@ -166,13 +170,13 @@ void function () {
             },
             "emojicode": {
                 "name": "Emojicode",
-                "description": "default",
+                "description": "😂😂👌🔥",
                 "basicPrice": 20000000,
                 "lps": 8000,
                 "multipliers": [
                     {
                         "name": "Perfection",
-                        "description": "default",
+                        "description": "Le langage des dieux",
                         "price": 0,
                         "value": 0
                     }
@@ -188,35 +192,45 @@ void function () {
         "languages": {
             "markdown": {
                 "quantity": 0,
+                "currentPrice": gameData.languages.markdown.basicPrice,
                 "multipliers": 0
             },
             "html": {
                 "quantity": 0,
+                "currentPrice": gameData.languages.html.basicPrice,
                 "multipliers": 0
             },
             "css": {
                 "quantity": 0,
+                "currentPrice": gameData.languages.css.basicPrice,
                 "multipliers": 0
             },
             "javascript": {
                 "quantity": 0,
+                "currentPrice": gameData.languages.javascript.basicPrice,
                 "multipliers": 0
             },
             "csharp": {
                 "quantity": 0,
+                "currentPrice": gameData.languages.csharp.basicPrice,
                 "multipliers": 0
             },
             "rust": {
                 "quantity": 0,
+                "currentPrice": gameData.languages.rust.basicPrice,
                 "multipliers": 0
             },
             "emojicode": {
                 "quantity": 0,
+                "currentPrice": gameData.languages.emojicode.basicPrice,
                 "multipliers": 0
             }
         },
         "upgrades": {}
     };
+
+    const lpsCounter = document.getElementById("lps");
+    let lps = 0;
 
     // ------------------------------- AUTO SAVE -------------------------------- \\
 
@@ -236,7 +250,7 @@ void function () {
     logo.addEventListener("click", () => {
         saveData.score++;
         displayScore();
-        lock();
+        checkLock();
     });
 
     logo.addEventListener("mousedown", () => {
@@ -252,9 +266,9 @@ void function () {
 
     // ------------------------------ AUTO-CLICKER ------------------------------ \\
 
+
     // price = basicPrice * (1.15 ** quantity)
-    const calculatePrice = language => (gameData.languages[language].basicPrice * Math.pow(1.15, saveData.languages[language].quantity))|0;
-    console.log(calculatePrice("rust"))
+    const updatePrice = language => saveData.languages[language].currentPrice = (gameData.languages[language].basicPrice * Math.pow(1.15, saveData.languages[language].quantity))|0;
 
     // Here's the div where we'll display the 'auto-clickers'
     const autoClickArea = document.getElementById("auto-clickers");
@@ -280,7 +294,7 @@ void function () {
         const ACName = document.createElement("p"); 
         ACName.textContent = gameData.languages[language].name;
         const ACPrice = document.createElement("p");
-        ACPrice.textContent = calculatePrice(language);
+        ACPrice.textContent = saveData.languages[language].currentPrice;
         ACPrice.className = "price";
         div.appendChild(ACName);
         div.appendChild(ACPrice);
@@ -299,21 +313,21 @@ void function () {
             const key = language;
             const autoclicker = newAC;
             if (!autoclicker.className.includes("locked")) {
-                const price = calculatePrice(key);
+                const price = saveData.languages[language].currentPrice;
+                updatePrice(key);
                 saveData.languages[key].quantity++;
                 saveData.score -= price;
+                updateLps();
                 displayScore();
                 autoclicker.querySelector(".quantity").textContent = saveData.languages[key].quantity;
-                autoclicker.querySelector(".price").textContent = calculatePrice(key);
-                lock();
+                autoclicker.querySelector(".price").textContent = saveData.languages[language].currentPrice;
+                checkLock();
             }
         });
 
         // Add our new auto-clicker to the div :=)
         autoClickArea.appendChild(newAC);
     }
-
-    let lps = 0;
 
     function updateLps() {
         let newLps = 0;
@@ -322,17 +336,18 @@ void function () {
         }
         lps = newLps;
     }
-    updateLps();
 
     function updateData() {
         updateLps();
         saveData.score += lps;
         displayScore();
     }
+    updateData();
 
     function displayScore() {
         counter.textContent = saveData.score|0;
-        lock();
+        lpsCounter.textContent = lps|0;
+        checkLock();
     }
 
     setInterval(updateData, 1000);
@@ -341,16 +356,14 @@ void function () {
 
     // ----- Lock of buttons if conditions no matched -----
 
-    function lock() {
-        [...document.querySelectorAll(".language")].forEach(element => {
-            // Check that 
-            if (calculatePrice(element.id) > saveData.score) {
-                element.className = "language locked";
-            } else element.className = "language";
+    function checkLock() {
+        document.querySelectorAll(".language").forEach(element => {
+            if (saveData.languages[element.id].currentPrice > saveData.score) element.className = "language locked";
+            else element.className = "language";
         });
     }
 
-    lock();
+    checkLock();
 
 }();
 
