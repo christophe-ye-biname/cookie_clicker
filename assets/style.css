@@ -49,6 +49,11 @@ body {
   width: 100%;
 }
 
+#center-container #game-container #logo {
+  border-radius: 50%;
+  cursor: crosshair;
+}
+
 #right-container {
   width: 25vw;
   height: 100%;
