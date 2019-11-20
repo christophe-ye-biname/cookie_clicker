@@ -230,12 +230,22 @@ void function () {
 
     const counter = document.getElementById("counter");
     // Fetch the counter value in the save data
-    counter.textContent = `${saveData.score} lignes de code`;
-
+    counter.textContent = saveData.score;
+    
+    const logo = document.getElementById("logo");
     // Increment the counter on click
-    document.getElementById("logo").addEventListener("click", () => {
+    logo.addEventListener("click", () => {
         saveData.score++;
-        counter.textContent = `${saveData.score} lignes de code`;
+        counter.textContent = saveData.score;
+        lock();
+    });
+
+    logo.addEventListener("mousedown", () => {
+        logo.style = "transform:scale(0.9)";
+    });
+        
+    logo.addEventListener("mouseup", () => {
+        logo.style = "transform:scale(1)";
     });
 
     // ------------------------------- MULTIPLIERS ------------------------------ \\
@@ -244,7 +254,7 @@ void function () {
     // ------------------------------ AUTO-CLICKER ------------------------------ \\
 
     // price = basicPrice * (1.15 ** quantity)
-    const calculatePrice = language => gameData.languages[language].basicPrice * Math.pow(1.15, saveData.languages[language].quantity);
+    const calculatePrice = language => (gameData.languages[language].basicPrice * Math.pow(1.15, saveData.languages[language].quantity))|0;
     console.log(calculatePrice("rust"))
 
     // Here's the div where we'll display the 'auto-clickers'
@@ -257,11 +267,14 @@ void function () {
         // Create the container for the auto-clicker
         const newAC = document.createElement("div");
         newAC.className = "language";
+        newAC.id = language;
+
+        // Create a random container for the display necessities
+        const container = document.createElement("div");
 
         // Fetch the logo of the language
         const img = document.createElement("img");
-        img.setAttribute("src", `assets/img/${language}.png`);
-        newAC.appendChild(img);
+        img.src = `assets/img/${language}.png`;
         
         // Fetch name and price of the language
         const div = document.createElement("div");
@@ -269,25 +282,58 @@ void function () {
         ACName.textContent = gameData.languages[language].name;
         const ACPrice = document.createElement("p");
         ACPrice.textContent = calculatePrice(language);
+        ACPrice.className = "price";
         div.appendChild(ACName);
         div.appendChild(ACPrice);
-        newAC.appendChild(div);
 
-        // Fetch the quantity of current owned 'language'
+        container.appendChild(img);
+        container.appendChild(div);
+        newAC.appendChild(container);
+
+        // Fetch the quantity
         const ACQuantity = document.createElement("p");
         ACQuantity.className = "quantity";
         ACQuantity.textContent = saveData.languages[language].quantity;
         newAC.appendChild(ACQuantity)
 
         newAC.addEventListener("click", () => {
-            console.log(newAC);
+            const key = language;
+            const autoclicker = newAC;
+            if (!autoclicker.className.includes("locked")) {
+                const price = calculatePrice(key);
+                saveData.languages[key].quantity++;
+                saveData.score -= price;
+                counter.textContent = saveData.score;
+                autoclicker.querySelector(".quantity").textContent = saveData.languages[key].quantity;
+                autoclicker.querySelector(".price").textContent = calculatePrice(key);
+                lock();
+            }
         });
 
         // Add our new auto-clicker to the div :=)
         autoClickArea.appendChild(newAC);
     }
 
+    let lps = 0;
+
+    function updateLps() {
+
+    }
+
     // -------------------------------- BONUS -------------------------------- \\
 
     // ----- Lock of buttons if conditions no matched -----
+
+    function lock() {
+        [...document.querySelectorAll(".language")].forEach(element => {
+            if (calculatePrice(element.id) > saveData.score) {
+                element.className = "language locked";
+                console.log(element.className)
+            } else element.className = "language";
+        });
+    }
+
+    lock();
+
 }();
+
