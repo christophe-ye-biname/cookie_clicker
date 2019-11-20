@@ -25,7 +25,7 @@ body{
     display: flex;
     flex-flow: column;
     overflow-y: scroll;
-    height: 310px;
+    height: 328px;
 }
 h2{
     text-align:center;
@@ -75,81 +75,85 @@ h1{
     text-align: center;
     width: 100%;
 }
+#farm img{
+    width: 25%;
+    height: 100%;
+}
+#farm1 img{
+    width: 25%;
+    height: 100%;
+}
+#farm2 img{
+    width: 25%;
+    height: 100%;
+}
+#farm3 img{
+    width: 25%;
+    height: 100%;
+}
+#farm4 img{
+    width: 25%;
+    height: 100%;
+}
+#farm5 img{
+    width: 25%;
+    height: 100%;
+}
+#farm6 img{
+    width: 25%;
+    height: 100%;
+}
 #farm{
     
     width: 100%;
-    background-image: url("img/logo_markdown.png");
-    background-size: 50px;
-    background-repeat: no-repeat;
-    background-position: -5px;
     display: flex;
     flex-wrap: wrap;
 }
 #farm1{
     
     width: 100%;
-    background-image: url("img/html.png");
-    background-size: 50px;
-    background-repeat: no-repeat;
-    background-position: -5px;
     display: flex;
     flex-wrap: wrap;
 }
 #farm2{
     
     width: 100%;
-    background-image: url("img/css.png");
-    background-size: 50px;
-    background-repeat: no-repeat;
-    background-position: -5px;
     display: flex;
     flex-wrap: wrap;
 }
 #farm3{
     
     width: 100%;
-    background-image: url("img/js.png");
-    background-size: 50px;
-    background-repeat: no-repeat;
-    background-position: -5px;
     display: flex;
     flex-wrap: wrap;
 }
 #farm4{
     
     width: 100%;
-    background-image: url("img/csharp.png");
-    background-size: 50px;
-    background-repeat: no-repeat;
-    background-position: -5px;
     display: flex;
     flex-wrap: wrap;
 }
 #farm5{
     
     width: 100%;
-    background-image: url("img/rust.png");
-    background-size: 50px;
-    background-repeat: no-repeat;
-    background-position: -5px;
     display: flex;
     flex-wrap: wrap;
 }
 #farm6{
     
     width: 100%;
-    background-image: url("img/emojicode.png");
-    background-size: 50px;
-    background-repeat: no-repeat;
-    background-position: -5px;
     display: flex;
     flex-wrap: wrap;
 }
 .usine{
-    width: 40%;
-    height: 40%;
+    width: 25%;
+    height: 25%;
 }
 .prix{
-    width: 40%;
-    height: 40%;
+    width: 50%;
+    height: 25%;
+}
+.nbr{
+    width: 100%;
+    height: 100%;
 }
