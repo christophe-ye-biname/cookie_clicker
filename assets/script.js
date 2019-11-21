@@ -1,5 +1,5 @@
 "use strict";
-// localStorage.clear(); // dé-commenter pour reset
+localStorage.clear(); // dé-commenter pour reset
 
 // Display incredible message in the console
 console.log(
@@ -202,6 +202,8 @@ void (function() {
     ? JSON.parse(localStorage.save)
     : {
         score: 0,
+        totalScore: 0,
+        timer: 0,
         languages: {
           markdown: {
             quantity: 0,
@@ -256,12 +258,14 @@ void (function() {
   // --------------------------------- COUNTER --------------------------------- \\
 
   const counter = document.getElementById("counter");
+  const total = document.getElementById("total-score");
   displayScore();
 
   const logo = document.getElementById("logo");
   // Increment the counter on click
   logo.addEventListener("click", () => {
     saveData.score++;
+    saveData.totalScore++;
     displayScore();
     checkLock();
   });
@@ -273,6 +277,42 @@ void (function() {
   logo.addEventListener("mouseup", () => {
     logo.style = "transform:scale(1)";
   });
+
+  // ------------------------------- TIMER ------------------------------ \\
+
+  let timeSpent = document.getElementById("timer");
+
+  function timer() {
+    let startDate = new Date();
+    let spentTime = 0;
+    let elapsedTime = 0;
+
+    const focus = function() {
+      startDate = new Date();
+      console.log("startDate: " + startDate);
+    };
+
+    const blur = function() {
+      const endDate = new Date();
+      console.log("endDate: " + endDate);
+      const rawSpentTime = endDate.getTime() - startDate.getTime();
+      elapsedTime += rawSpentTime;
+      spentTime = [
+        Math.round((elapsedTime % 60000) / 1000),
+        Math.floor((elapsedTime % 3600000) / 60000),
+        Math.floor(elapsedTime / 3600000)
+      ]
+        .map(x => (x < 10 ? "0" : "") + x)
+        .reverse().join`:`;
+      console.log("spentTime: " + spentTime);
+      timeSpent.textContent = spentTime;
+    };
+
+    window.addEventListener("focus", focus);
+    window.addEventListener("blur", blur);
+  }
+
+  timer();
 
   // ------------------------------- MULTIPLIERS ------------------------------ \\
 
@@ -327,16 +367,17 @@ void (function() {
       const key = language;
       const autoclicker = newAC;
       if (!autoclicker.className.includes("locked")) {
-        const price = saveData.languages[language].currentPrice;
+        const price = saveData.languages[key].currentPrice;
         updatePrice(key);
         saveData.languages[key].quantity++;
         saveData.score -= price;
+        saveData.totalScore += price;
         updateLps();
         displayScore();
         autoclicker.querySelector(".quantity").textContent =
           saveData.languages[key].quantity;
         autoclicker.querySelector(".price").textContent =
-          saveData.languages[language].currentPrice;
+          saveData.languages[key].currentPrice;
         checkLock();
       }
     });
@@ -358,12 +399,14 @@ void (function() {
   function updateData() {
     updateLps();
     saveData.score += lps;
+    saveData.totalScore += lps;
     displayScore();
   }
   updateData();
 
   function displayScore() {
     counter.textContent = saveData.score | 0;
+    total.textContent = saveData.totalScore | 0;
     lpsCounter.textContent = lps | 0;
     checkLock();
   }
