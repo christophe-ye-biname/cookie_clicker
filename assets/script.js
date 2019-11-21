@@ -203,7 +203,7 @@ void (function() {
     : {
         score: 0,
         totalScore: 0,
-        timer: 0,
+        date: 0,
         languages: {
           markdown: {
             quantity: 0,
@@ -284,32 +284,21 @@ void (function() {
 
   function timer() {
     let startDate = new Date();
-    let spentTime = 0;
-    let elapsedTime = 0;
 
-    const focus = function() {
-      startDate = new Date();
-      console.log("startDate: " + startDate);
-    };
+    timeSpent.innerHTML =
+      "Partie débutée le " +
+      new Date().toLocaleDateString("fr", {
+        weekday: "long",
+        era: "long",
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+        hour: "numeric",
+        minute: "2-digit",
+        second: "2-digit"
+      });
 
-    const blur = function() {
-      const endDate = new Date();
-      console.log("endDate: " + endDate);
-      const rawSpentTime = endDate.getTime() - startDate.getTime();
-      elapsedTime += rawSpentTime;
-      spentTime = [
-        Math.round((elapsedTime % 60000) / 1000),
-        Math.floor((elapsedTime % 3600000) / 60000),
-        Math.floor(elapsedTime / 3600000)
-      ]
-        .map(x => (x < 10 ? "0" : "") + x)
-        .reverse().join`:`;
-      console.log("spentTime: " + spentTime);
-      timeSpent.textContent = spentTime;
-    };
-
-    window.addEventListener("focus", focus);
-    window.addEventListener("blur", blur);
+    saveData.date = startDate;
   }
 
   timer();
