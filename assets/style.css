@@ -4,7 +4,21 @@
 }
 
 body {
-  background-color: #3a3535;
+  background-image: linear-gradient(
+    to left bottom,
+    #1f2022,
+    #24282e,
+    #27303a,
+    #283a45,
+    #284351,
+    #2c4f5f,
+    #305c6c,
+    #33697a,
+    #3e7d8e,
+    #4a91a2,
+    #56a6b6,
+    #63bcca
+  );
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
