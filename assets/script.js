@@ -1,5 +1,5 @@
 "use strict";
-// localStorage.clear(); // dé-commenter pour reset
+localStorage.clear(); // dé-commenter pour reset
 
 // Display incredible message in the console
 console.log(
@@ -203,6 +203,7 @@ void (function() {
     : {
         score: 0,
         totalScore: 0,
+        totalClick: 0,
         date: 0,
         languages: {
           markdown: {
@@ -258,7 +259,8 @@ void (function() {
   // --------------------------------- COUNTER --------------------------------- \\
 
   const counter = document.getElementById("counter");
-  const total = document.getElementById("total-score");
+  const totalAll = document.getElementById("total-score");
+  const totalClick = document.getElementById("total-click");
   displayScore();
 
   const logo = document.getElementById("logo");
@@ -266,6 +268,7 @@ void (function() {
   logo.addEventListener("click", () => {
     saveData.score++;
     saveData.totalScore++;
+    saveData.totalClick++;
     displayScore();
     checkLock();
   });
@@ -298,6 +301,8 @@ void (function() {
   // ------------------------------- MULTIPLIERS ------------------------------ \\
 
   // ------------------------------ AUTO-CLICKER ------------------------------ \\
+
+  let bonusArea = document.getElementById("bonus");
 
   // price = basicPrice * (1.15 ** quantity)
   const updatePrice = language =>
@@ -365,6 +370,51 @@ void (function() {
 
     // Add our new auto-clicker to the div :=)
     autoClickArea.appendChild(newAC);
+
+    // Add bonus to the div
+    for (const bonus of gameData.languages[language].multipliers) {
+      const newB = document.createElement("div");
+      newB.className = "bonus";
+      newB.id = bonus.name;
+
+      // Create a random container for display necessities
+      const container = document.createElement("div");
+
+      // Fetch the image for each bonus
+      const img = document.createElement("img");
+      img.src = `assets/img/${bonus.name}.png`;
+
+      // Fetch name and price of the bonus
+      const div = document.createElement("div");
+      const BName = document.createElement("p");
+      BName.textContent = bonus.name;
+      const BPrice = document.createElement("p");
+      BPrice.textContent = bonus.price;
+      BPrice.className = "price";
+      div.appendChild(BName);
+      div.appendChild(BPrice);
+
+      container.appendChild(img);
+      container.appendChild(div);
+      newB.appendChild(container);
+      bonusArea.appendChild(newB);
+
+      // newB.addEventListener("click", () => {
+      //   const key = bonus;
+      //   const bonus = newB;
+      //   if (!autoclicker.className.includes("locked")) {
+      //     const price = bonus.price;
+      //     price(key);
+      //     saveData.score -= price;
+      //     saveData.totalScore += price;
+      //     updateLps();
+      //     displayScore();
+      //     autoclicker.querySelector(".price").textContent =
+      //       bonus.price;
+      //     checkLock();
+      //   }
+      // });
+    }
   }
 
   function updateLps() {
@@ -387,7 +437,8 @@ void (function() {
 
   function displayScore() {
     counter.textContent = saveData.score.toFixed(2);
-    total.textContent = saveData.totalScore.toFixed(0);
+    totalAll.textContent = saveData.totalScore.toFixed(0);
+    totalClick.textContent = saveData.totalClick;
     lpsCounter.textContent = lps.toFixed(2).replace(/\.?0+$/, "");
     checkLock();
   }
