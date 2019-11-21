@@ -280,28 +280,20 @@ void (function() {
 
   // ------------------------------- TIMER ------------------------------ \\
 
-  let timeSpent = document.getElementById("timer");
+  let timeSpent = document.getElementById("date");
 
-  function timer() {
-    let startDate = new Date();
-
-    timeSpent.innerHTML =
-      "Partie débutée le " +
-      new Date().toLocaleDateString("fr", {
-        weekday: "long",
-        era: "long",
-        year: "numeric",
-        month: "long",
-        day: "numeric",
-        hour: "numeric",
-        minute: "2-digit",
-        second: "2-digit"
-      });
-
-    saveData.date = startDate;
-  }
-
-  timer();
+  timeSpent.innerHTML =
+    "Partie débutée le " +
+    new Date().toLocaleDateString("fr", {
+      weekday: "long",
+      era: "long",
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+      hour: "numeric",
+      minute: "2-digit",
+      second: "2-digit"
+    });
 
   // ------------------------------- MULTIPLIERS ------------------------------ \\
 
@@ -357,8 +349,8 @@ void (function() {
       const autoclicker = newAC;
       if (!autoclicker.className.includes("locked")) {
         const price = saveData.languages[key].currentPrice;
-        updatePrice(key);
         saveData.languages[key].quantity++;
+        updatePrice(key);
         saveData.score -= price;
         saveData.totalScore += price;
         updateLps();
@@ -387,20 +379,20 @@ void (function() {
 
   function updateData() {
     updateLps();
-    saveData.score += lps;
+    saveData.score += lps / 10;
     saveData.totalScore += lps;
     displayScore();
   }
   updateData();
 
   function displayScore() {
-    counter.textContent = saveData.score | 0;
-    total.textContent = saveData.totalScore | 0;
-    lpsCounter.textContent = lps | 0;
+    counter.textContent = saveData.score.toFixed(2);
+    total.textContent = saveData.totalScore.toFixed(0);
+    lpsCounter.textContent = lps.toFixed(2).replace(/\.?0+$/, "");
     checkLock();
   }
 
-  setInterval(updateData, 1000);
+  setInterval(updateData, 100);
 
   // -------------------------------- BONUS -------------------------------- \\
 
