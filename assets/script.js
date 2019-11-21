@@ -1,5 +1,5 @@
 "use strict";
-localStorage.clear(); // dé-commenter pour reset
+// localStorage.clear(); // dé-commenter pour reset
 
 // Display incredible message in the console
 console.log(
@@ -389,7 +389,7 @@ void (function() {
       const BName = document.createElement("p");
       BName.textContent = bonus.name;
       const BPrice = document.createElement("p");
-      BPrice.textContent = bonus.price;
+      BPrice.textContent = saveData.score + 1;
       BPrice.className = "price";
       div.appendChild(BName);
       div.appendChild(BPrice);
@@ -417,6 +417,8 @@ void (function() {
     }
   }
 
+  const allBonusesPrices = document.querySelectorAll(".bonus .price");
+
   function updateLps() {
     let newLps = 0;
     for (const language in saveData.languages) {
@@ -432,6 +434,9 @@ void (function() {
     saveData.score += lps / 10;
     saveData.totalScore += lps;
     displayScore();
+    allBonusesPrices.forEach(
+      x => (x.textContent = saveData.score.toFixed(2) + " + 1")
+    );
   }
   updateData();
 
