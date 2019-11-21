@@ -40,15 +40,23 @@ body {
         font-size: 2em;
 
         &:after {
-          content: " lps";
+          content: " lignes de code";
         }
       }
 
-      #logo {
-        border-radius: 50%;
-        cursor: crosshair;
-        width: 50%;
+      #lps {
+        color: rgb(233, 227, 227);
+        font-size: 1.5em;
+        &:after {
+          content: " lps";
+        }
       }
+    }
+
+    #logo {
+      border-radius: 50%;
+      cursor: crosshair;
+      width: 50%;
     }
   }
 }
@@ -62,10 +70,10 @@ body {
 
   #auto-clickers {
     width: 75%;
+    $language-bg: rgb(31, 28, 28);
     .language {
       height: 8vh;
       color: rgb(196, 196, 196);
-      $language-bg: rgb(31, 28, 28);
       background-color: $language-bg;
       display: flex;
       justify-content: space-between;
