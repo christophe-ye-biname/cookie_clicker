@@ -1,5 +1,5 @@
 "use strict";
-localStorage.clear(); // dé-commenter pour reset
+// localStorage.clear(); // dé-commenter pour reset
 
 // Display incredible message in the console
 console.log(
