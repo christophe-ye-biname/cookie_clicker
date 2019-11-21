@@ -396,6 +396,51 @@ void (function() {
 
   // -------------------------------- BONUS -------------------------------- \\
 
+  const bonus = document.getElementById("bonus");
+
+  for (let bonus of gameData.languages.multipliers.name) {
+    const newB = document.createElement("div");
+    newB.className = "bonus";
+    newB.id = bonus;
+
+    // Create a random container for display necessities
+    const container = document.createElement("div");
+
+    // Fetch the image for each bonus
+    const img = document.createElement("img");
+    img.src = `assets/img/${bonus}.png`;
+
+    // Fetch name and price of the language
+    const div = document.createElement("div");
+    const BName = document.createElement("p");
+    BName.textContent = gameData.languages.multipliers.name;
+    const BPrice = document.createElement("p");
+    BPrice.textContent = gameData.languages.multipliers.price;
+    BPrice.className = "price";
+    div.appendChild(BName);
+    div.appendChild(BPrice);
+
+    container.appendChild(img);
+    container.appendChild(div);
+    newB.appendChild(container);
+
+    newAC.addEventListener("click", () => {
+      const key = bonus;
+      const bonus = newB;
+      if (!autoclicker.className.includes("locked")) {
+        const price = gameData.languages.multipliers.price;
+        price(key);
+        saveData.score -= price;
+        saveData.totalScore += price;
+        updateLps();
+        displayScore();
+        autoclicker.querySelector(".price").textContent =
+          gameData.languages.multipliers.price;
+        checkLock();
+      }
+    });
+  }
+
   // ----- Lock of buttons if conditions no matched -----
 
   function checkLock() {
