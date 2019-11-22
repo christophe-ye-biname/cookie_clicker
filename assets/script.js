@@ -1,14 +1,10 @@
 "use strict";
-// localStorage.clear(); // dé-commenter pour reset
 
 // Display incredible message in the console
-console.log(
-  "%c STOP TRICHER HELP (╯°□°）╯︵ ┻━┻",
-  `color: red; background-color:black; font-size: 30px; font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;`
-);
+console.log("%c STOP TRICHER HELP (╯°□°）╯︵ ┻━┻", `color: red; background-color:black; font-size: 30px; font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;`);
 
 // Encapsulating the game data using an IIFE
-void (function() {
+void function() {
   // ------------------------------ LOAD THE GAME ------------------------------ \\
 
   // Here's the data of the game
@@ -51,8 +47,7 @@ void (function() {
           },
           {
             name: "Validateur W3C",
-            description:
-              "Les roses sont rouge, le ciel est bleu, ton site n'a qu'un score de 22",
+            description: "Les roses sont rouge, le ciel est bleu, ton site n'a qu'un score de 22",
             price: 0,
             value: 0
           }
@@ -60,14 +55,13 @@ void (function() {
       },
       css: {
         name: "CSS",
-        description:
-          "Le CSS c'est comme les bugs, c'est quand il y en a pas que c’est louche",
+        description: "Le CSS c'est comme les bugs, c'est quand il y en a pas que c’est louche",
         basicPrice: 1024,
         lps: 8,
         multipliers: [
           {
             name: "Flexbox Froggy",
-            description: "dés que tu le maitrise, le front c'est dans la boite",
+            description: "Dès que tu le maîtrise, le front c'est dans la boîte",
             price: 0,
             value: 0
           },
@@ -172,8 +166,7 @@ void (function() {
           },
           {
             name: "Lifetime",
-            description:
-              "À peu près le temps qu’il faut pour commencer à comprendre ce que tu fais avec",
+            description: "À peu près le temps qu’il faut pour commencer à comprendre ce que tu fais avec",
             price: 0,
             value: 0
           }
@@ -203,7 +196,8 @@ void (function() {
     : {
         score: 0,
         totalScore: 0,
-        date: 0,
+        totalClick: 0,
+        date: new Date(),
         languages: {
           markdown: {
             quantity: 0,
@@ -258,7 +252,8 @@ void (function() {
   // --------------------------------- COUNTER --------------------------------- \\
 
   const counter = document.getElementById("counter");
-  const total = document.getElementById("total-score");
+  const totalAll = document.getElementById("total-score");
+  const totalClick = document.getElementById("total-click");
   displayScore();
 
   const logo = document.getElementById("logo");
@@ -266,6 +261,7 @@ void (function() {
   logo.addEventListener("click", () => {
     saveData.score++;
     saveData.totalScore++;
+    saveData.totalClick++;
     displayScore();
     checkLock();
   });
@@ -284,7 +280,7 @@ void (function() {
 
   timeSpent.innerHTML =
     "Partie débutée le " +
-    new Date().toLocaleDateString("fr", {
+    new Date(saveData.date).toLocaleDateString("fr", {
       weekday: "long",
       era: "long",
       year: "numeric",
@@ -298,6 +294,8 @@ void (function() {
   // ------------------------------- MULTIPLIERS ------------------------------ \\
 
   // ------------------------------ AUTO-CLICKER ------------------------------ \\
+
+  let bonusArea = document.getElementById("bonus");
 
   // price = basicPrice * (1.15 ** quantity)
   const updatePrice = language =>
@@ -314,6 +312,7 @@ void (function() {
   for (const language in gameData.languages) {
     // Create the container for the auto-clicker
     const newAC = document.createElement("div");
+    newAC.setAttribute("data-tooltip", gameData.languages[language].description);
     newAC.className = "language";
     newAC.id = language;
 
@@ -365,6 +364,33 @@ void (function() {
 
     // Add our new auto-clicker to the div :=)
     autoClickArea.appendChild(newAC);
+
+    // Add bonus to the div
+    for (const bonus of gameData.languages[language].multipliers) {
+      const newB = document.createElement("div");
+      newB.className = "bonus";
+      newB.id = bonus.name;
+
+      // Create a random container for display necessities
+      const container = document.createElement("div");
+
+      // Fetch the image for each bonus
+      const img = document.createElement("img");
+      img.src = `assets/img/${bonus.name}.png`;
+
+      // Fetch name and price of the bonus
+      const div = document.createElement("div");
+      const BName = document.createElement("p");
+      BName.textContent = bonus.name;
+      const BPrice = document.createElement("p");
+      BPrice.textContent = saveData.score + 1;
+      BPrice.className = "price";
+
+      container.appendChild(img);
+      container.appendChild(div);
+      newB.appendChild(container);
+      bonusArea.appendChild(newB);
+    }
   }
 
   function updateLps() {
@@ -387,7 +413,8 @@ void (function() {
 
   function displayScore() {
     counter.textContent = saveData.score.toFixed(2);
-    total.textContent = saveData.totalScore.toFixed(0);
+    totalAll.textContent = saveData.totalScore.toFixed(0);
+    totalClick.textContent = saveData.totalClick;
     lpsCounter.textContent = lps.toFixed(2).replace(/\.?0+$/, "");
     checkLock();
   }
@@ -452,4 +479,4 @@ void (function() {
   }
 
   checkLock();
-})();
+}();
