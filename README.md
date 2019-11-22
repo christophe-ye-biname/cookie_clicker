@@ -25,9 +25,16 @@ Votre recentis sur le projet ici
 
 [**Louis Wicket :**](https://github.com/512LouisWicket)
 
-Votre recentis sur le projet ici
+XDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD
+DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD
+DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD
+DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD
 
-[**Micky Companie :**](https://github.com/MickyCompanie)
+[__Micky Companie :__](https://github.com/MickyCompanie)    
+
+Votre recentis sur le projet ici  
+
+[__Vincent Vissers :__](https://github.com/Vincent-120)    
 
 Working in group is always a great and fun way to learn. My feeling about this project is that I'm sure that people courageous enough to try **Beclicker** will have as much fun playing it that we had working on it.
 
