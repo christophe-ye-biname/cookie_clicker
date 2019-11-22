@@ -1,14 +1,10 @@
 "use strict";
-// localStorage.clear(); // dé-commenter pour reset
 
 // Display incredible message in the console
-console.log(
-  "%c STOP TRICHER HELP (╯°□°）╯︵ ┻━┻",
-  `color: red; background-color:black; font-size: 30px; font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;`
-);
+console.log("%c STOP TRICHER HELP (╯°□°）╯︵ ┻━┻", `color: red; background-color:black; font-size: 30px; font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;`);
 
 // Encapsulating the game data using an IIFE
-void (function() {
+void function() {
   // ------------------------------ LOAD THE GAME ------------------------------ \\
 
   // Here's the data of the game
@@ -51,8 +47,7 @@ void (function() {
           },
           {
             name: "Validateur W3C",
-            description:
-              "Les roses sont rouge, le ciel est bleu, ton site n'a qu'un score de 22",
+            description: "Les roses sont rouge, le ciel est bleu, ton site n'a qu'un score de 22",
             price: 0,
             value: 0
           }
@@ -60,14 +55,13 @@ void (function() {
       },
       css: {
         name: "CSS",
-        description:
-          "Le CSS c'est comme les bugs, c'est quand il y en a pas que c’est louche",
+        description: "Le CSS c'est comme les bugs, c'est quand il y en a pas que c’est louche",
         basicPrice: 1024,
         lps: 8,
         multipliers: [
           {
             name: "Flexbox Froggy",
-            description: "dés que tu le maitrise, le front c'est dans la boite",
+            description: "Dès que tu le maîtrise, le front c'est dans la boîte",
             price: 0,
             value: 0
           },
@@ -172,8 +166,7 @@ void (function() {
           },
           {
             name: "Lifetime",
-            description:
-              "À peu près le temps qu’il faut pour commencer à comprendre ce que tu fais avec",
+            description: "À peu près le temps qu’il faut pour commencer à comprendre ce que tu fais avec",
             price: 0,
             value: 0
           }
@@ -204,7 +197,7 @@ void (function() {
         score: 0,
         totalScore: 0,
         totalClick: 0,
-        date: 0,
+        date: new Date(),
         languages: {
           markdown: {
             quantity: 0,
@@ -287,7 +280,7 @@ void (function() {
 
   timeSpent.innerHTML =
     "Partie débutée le " +
-    new Date().toLocaleDateString("fr", {
+    new Date(saveData.date).toLocaleDateString("fr", {
       weekday: "long",
       era: "long",
       year: "numeric",
@@ -398,22 +391,6 @@ void (function() {
       container.appendChild(div);
       newB.appendChild(container);
       bonusArea.appendChild(newB);
-
-      // newB.addEventListener("click", () => {
-      //   const key = bonus;
-      //   const bonus = newB;
-      //   if (!autoclicker.className.includes("locked")) {
-      //     const price = bonus.price;
-      //     price(key);
-      //     saveData.score -= price;
-      //     saveData.totalScore += price;
-      //     updateLps();
-      //     displayScore();
-      //     autoclicker.querySelector(".price").textContent =
-      //       bonus.price;
-      //     checkLock();
-      //   }
-      // });
     }
   }
 
@@ -463,4 +440,4 @@ void (function() {
   }
 
   checkLock();
-})();
+}();
