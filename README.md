@@ -14,7 +14,7 @@ this repo is a group-project that we made during our formation at [**Becode**](h
 
 [**Christophe Ye Biname :**](https://github.com/christophe-ye-biname)
 
-Votre recentis sur le projet ici
+**Coming soon**
 
 [**Denis Bourgeois :**](https://github.com/Debourgeo)
 
@@ -30,15 +30,13 @@ DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD
 DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD
 DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD
 
-[__Micky Companie :__](https://github.com/MickyCompanie)    
+[**Micky Companie :**](https://github.com/MickyCompanie)
 
-Votre recentis sur le projet ici  
-
-[__Vincent Vissers :__](https://github.com/Vincent-120)    
-
-Working in group is always a great and fun way to learn. My feeling about this project is that I'm sure that people courageous enough to try **Beclicker** will have as much fun playing it that we had working on it.
+Working in group is always a great and fun way to learn. My feeling about this project is that I'm sure that peoples courageous enough to try **Beclicker** will get as much fun playing it that we had working on it.
 
 [**Vincent Vissers :**](https://github.com/Vincent-120)
+
+It was fun.
 
 ## What it looks like ?
 
