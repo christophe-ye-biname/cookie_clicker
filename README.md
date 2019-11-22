@@ -27,7 +27,7 @@ Votre recentis sur le projet ici
 
 [__Micky Companie :__](https://github.com/MickyCompanie)    
 
-Votre recentis sur le projet ici  
+Working in group is always a great and fun way to learn, my feeling about this project is that i think that peoples who's gonna be courageous enough to try be clicker will get as much fun playing it that we had to work on this project    
 
 [__Vincent Vissers :__](https://github.com/Vincent-120)    
 
