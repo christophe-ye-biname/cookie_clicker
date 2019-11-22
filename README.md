@@ -29,7 +29,7 @@ Votre recentis sur le projet ici
 
 [**Micky Companie :**](https://github.com/MickyCompanie)
 
-Votre recentis sur le projet ici
+Working in group is always a great and fun way to learn. My feeling about this project is that I'm sure that people courageous enough to try **Beclicker** will have as much fun playing it that we had working on it.
 
 [**Vincent Vissers :**](https://github.com/Vincent-120)
 
