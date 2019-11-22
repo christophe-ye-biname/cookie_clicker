@@ -312,6 +312,7 @@ void function() {
   for (const language in gameData.languages) {
     // Create the container for the auto-clicker
     const newAC = document.createElement("div");
+    newAC.setAttribute("data-tooltip", gameData.languages[language].description);
     newAC.className = "language";
     newAC.id = language;
 
@@ -384,8 +385,6 @@ void function() {
       const BPrice = document.createElement("p");
       BPrice.textContent = saveData.score + 1;
       BPrice.className = "price";
-      div.appendChild(BName);
-      div.appendChild(BPrice);
 
       container.appendChild(img);
       container.appendChild(div);
@@ -393,8 +392,6 @@ void function() {
       bonusArea.appendChild(newB);
     }
   }
-
-  const allBonusesPrices = document.querySelectorAll(".bonus .price");
 
   function updateLps() {
     let newLps = 0;
@@ -411,9 +408,6 @@ void function() {
     saveData.score += lps / 10;
     saveData.totalScore += lps;
     displayScore();
-    allBonusesPrices.forEach(
-      x => (x.textContent = saveData.score.toFixed(2) + " + 1")
-    );
   }
   updateData();
 
