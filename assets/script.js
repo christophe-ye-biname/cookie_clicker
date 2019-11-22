@@ -385,14 +385,14 @@ void (function() {
       img.src = `assets/img/${bonus.name}.png`;
 
       // Fetch name and price of the bonus
-      const div = document.createElement("div");
-      const BName = document.createElement("p");
+      const div = document.createElement("div");//décommenter
+      const BName = document.createElement("p");//décommenter
       BName.textContent = bonus.name;
       const BPrice = document.createElement("p");
       BPrice.textContent = bonus.price;
       BPrice.className = "price";
-      div.appendChild(BName);
-      div.appendChild(BPrice);
+      //div.appendChild(BName);
+      //div.appendChild(BPrice);
 
       container.appendChild(img);
       container.appendChild(div);
